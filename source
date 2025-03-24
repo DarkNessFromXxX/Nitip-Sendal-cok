@@ -188,7 +188,10 @@ function ChangeTheme(ThemeName)
 	
 	Rayfield.Main.Topbar.ChangeSize.ImageColor3 = SelectedTheme.TextColor
 	Rayfield.Main.Topbar.Hide.ImageColor3 = SelectedTheme.TextColor
-	Rayfield.Main.Topbar.Theme.ImageColor3 = SelectedTheme.TextColor
+	local ThemeElement = Rayfield.Main.Topbar:FindFirstChild("Theme")
+          if ThemeElement then
+              ThemeElement.ImageColor3 = SelectedTheme.TextColor
+          end
 	
 	for _, TabPage in ipairs(Elements:GetChildren()) do
 		for _, Element in ipairs(TabPage:GetChildren()) do
