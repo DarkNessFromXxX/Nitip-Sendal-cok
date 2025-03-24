@@ -915,14 +915,16 @@ function RayfieldLibrary:CreateWindow(Settings)
 	AddDraggingFunctionality(Topbar,Main)
 
 	for _, TabButton in ipairs(TabList:GetChildren()) do
-		if TabButton.ClassName == "Frame" and TabButton.Name ~= "Placeholder" then
-			TabButton.BackgroundTransparency = 1
-			TabButton.Title.TextTransparency = 1
-			TabButton.Shadow.ImageTransparency = 1
-			TabButton.Image.ImageTransparency = 1
-			TabButton.UIStroke.Transparency = 1
-		end
-	end
+          if TabButton.ClassName == "Frame" and TabButton.Name ~= "Placeholder" then
+              TabButton.BackgroundTransparency = 1
+              TabButton.Title.TextTransparency = 1
+          if TabButton:FindFirstChild("Shadow") then
+              TabButton.Shadow.ImageTransparency = 1
+              end
+          TabButton.Image.ImageTransparency = 1
+          TabButton.UIStroke.Transparency = 1
+            end
+        end
 	
 	if Settings.Discord then
 		if not isfolder(RayfieldFolder.."/Discord Invites") then
@@ -1208,7 +1210,9 @@ function RayfieldLibrary:CreateWindow(Settings)
 			TweenService:Create(TabButton.Image, TweenInfo.new(0.7, Enum.EasingStyle.Quint), {ImageTransparency = 0.2}):Play()
 			TweenService:Create(TabButton.UIStroke, TweenInfo.new(0.7, Enum.EasingStyle.Quint), {Transparency = 0}):Play()
 			
-			TweenService:Create(TabButton.Shadow, TweenInfo.new(0.3, Enum.EasingStyle.Quint), {ImageTransparency = 0.7}):Play()
+			if TabButton:FindFirstChild("Shadow") then
+                            TweenService:Create(TabButton.Shadow, TweenInfo.new(0.3, Enum.EasingStyle.Quint), {ImageTransparency = 0.7}):Play()
+                        end
 		else
 			FirstTab = Name
 			TabButton.BackgroundColor3 = SelectedTheme.TabBackgroundSelected
