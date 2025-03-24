@@ -1362,7 +1362,7 @@ function RayfieldLibrary:CreateWindow(Settings)
 
 			local opened = false 
 			local mouse = game.Players.LocalPlayer:GetMouse()
-			Main.Image = "https://raw.githubusercontent.com/DarkNessFromXxX/Nitip-Sendal-cok/refs/heads/main/komodo-kmd-logo.png"
+			Main.Image = "http://www.roblox.com/asset/?id=11415645739"
 			local mainDragging = false 
 			local sliderDragging = false 
 			ColorPicker.Interact.MouseButton1Down:Connect(function()
